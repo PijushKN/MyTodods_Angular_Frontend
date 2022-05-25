@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-export class Todo{
-  constructor(
-    public id:number,
-    public description:String,
-    public targetDate:Date,
-    public isDone:boolean
-    ){}
-}
+import { Todo } from '../models/todo.model';
+import { WelcomeDataService } from '../service/data/welcome-data.service';
 
 @Component({
   selector: 'app-list-todos',
@@ -15,16 +9,27 @@ export class Todo{
 })
 
 export class ListTodosComponent implements OnInit {
-
-  constructor() { }
+  todos: Todo[] = [];
+  message:string='';
+  constructor(private service:WelcomeDataService) { }
 
   ngOnInit(): void {
+    this.showTodos();
   }
 
-  todos = [
-    new Todo(1,"Study Angular 12", new Date(),false),
-    new Todo(1,"Study Spring Boot", new Date(),false),
-    new Todo(1,"Create Project Using Both", new Date(),false)
-]
+  handleDeleteTodo(id:number){
+    this.service.deleteTodo(id).subscribe();
+    this.showTodos();
+    this.message="Todo "+id+' Deleted Successfully';
+
+  }
+
+  showTodos(){
+    this.service.retrieveAllTodos().subscribe(
+      response=>this.todos=response
+    )
+  }
+
+  
 
 }

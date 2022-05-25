@@ -26,7 +26,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   getSuperCustomizedMessage(){
-    this.service.ExecuteHelloWorldBeanServiceWithPathVariable(this.username).subscribe(
+    this.service.executeHelloWorldBeanServiceWithPathVariable(this.username).subscribe(
       response=>this.msg=response.message,
       error=>console.log(error.error.message)
     );
