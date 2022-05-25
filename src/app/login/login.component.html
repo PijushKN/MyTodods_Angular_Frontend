@@ -1,0 +1,6 @@
+<div><small style="color: red" *ngIf="notAuthenticated">{{errorMessage}}</small></div>
+
+Username:<input type="text" name="username" [(ngModel)]="username">
+Password:<input type="password" name="password" [(ngModel)]="password">
+
+    <button class="btn btn-success" (click)="handleLogin()">Login</button>
