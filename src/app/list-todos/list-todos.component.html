@@ -7,7 +7,8 @@
             <th>Description</th>
             <th>Target Date</th>
             <th>Is Completed</th>
-            <th>Action</th>
+            <th>Update</th>
+            <th>Delete</th>
         </thead>
         <tbody>
             <tr *ngFor="let todo of todos">
@@ -15,9 +16,14 @@
                 <td>{{todo.description}}</td>
                 <td>{{todo.targetDate |date}}</td>
                 <td>{{todo.done}}</td>
+                <td><button class="btn btn-success" (click)="handleUpdateTodo(todo.id)">Update Todo</button></td>
                 <td><button class="btn btn-warning" (click)="handleDeleteTodo(todo.id)">Delete Todo</button></td>
                 
             </tr>
         </tbody>
     </table>
+
+    <div >
+        <button class="btn btn-success" (click)="addTodo()">Add</button>
+    </div>
 </div>

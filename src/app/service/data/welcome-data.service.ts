@@ -23,7 +23,20 @@ export class WelcomeDataService {
     return this.http.get<Todo[]>(this.commonUrl+'todos');
   }
 
+  retrieveTodo(id:number){
+    return this.http.get<Todo>(this.commonUrl+"todos/"+id);
+  }
   deleteTodo(id:number){
     return this.http.delete(this.commonUrl+'todos/'+id);
   }
+
+  updateTodo(id:number,todo:Todo){
+    return this.http.put(this.commonUrl+'todos/'+id,todo);
+  }
+
+  createTodo(todo:Todo){
+    return this.http.post(this.commonUrl+"todos",todo);
+  }
+
+
 }
