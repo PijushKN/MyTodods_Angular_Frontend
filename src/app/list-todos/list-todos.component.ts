@@ -31,7 +31,8 @@ export class ListTodosComponent implements OnInit {
 
   showTodos(){
     this.service.retrieveAllTodos().subscribe(
-      response=>this.todos=response
+      response=>this.todos=response,
+      error=>this.router.navigate(['**'])
     )
   }
 

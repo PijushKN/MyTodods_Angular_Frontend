@@ -1,3 +1,10 @@
 #mybtn{
     margin-top: 20px;
 }
+
+.ng-invalid:not(form){
+    border-left: 5px solid red;
+}
+.desc-alert{
+    margin-top: 15px;
+}
